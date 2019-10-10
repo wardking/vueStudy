@@ -1,2 +1,1 @@
-# 这是一个乱写的项目
-## (git地址)[https://github.com/wardking/Vue-.git]
+### 这是一个自学写的项目  很初级

@@ -4,3 +4,9 @@
     2. 底部区域 Tabbar 区域，使用的是MUI的Tabbar.html  购物车图标使用的是MUI的扩展图标
     3. 中间内容主题区域放置router-view 展示路由页面
 ## 子路由组件4个
+    1. HomeContainer 首页  子页面6个
+        + NewsList  新闻资讯
+            - 点击列表跳转到详情
+    2. MemberContainer 会员
+    3. ShopcarContainer 购物车
+    4. SearchContainer 搜索

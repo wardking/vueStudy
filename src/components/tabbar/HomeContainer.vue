@@ -9,10 +9,10 @@
         <!-- 9宫格布局 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                        <a href="#">
+                        <router-link to="/home/newslist">
 		                    <img src="../../images/icon1.png" alt="新闻资讯">
 		                    <div class="mui-media-body">新闻资讯</div>
-                        </a>
+                        </router-link>
                     </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../images/icon2.png" alt="图片分享">
@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         getSlideshow(){//获取轮播图数据
-            this.$http.get("http://www.liulongbin.top:3005/api/getlunbo").then((res)=>{
+            this.$http.get("api/getlunbo").then((res)=>{
                 if(res.body.status===0&&res.body.message){
                     this.slideshowList=res.body.message;
                 }else{

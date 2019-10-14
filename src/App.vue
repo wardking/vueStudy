@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scope>
     .app-container{
         padding-top:40px; 
+		padding-bottom: 50px;
 		overflow-x: hidden;//路由动画样式
     }
 	// 设置路由动画

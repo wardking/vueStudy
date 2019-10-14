@@ -5,7 +5,8 @@ import HomeContainer from './components/tabbar/HomeContainer.vue'//首页组件
 import MemberContainer from './components/tabbar/MemberContainer.vue'//会员组件
 import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'//购物车组件
 import SearchContainer from './components/tabbar/SearchContainer.vue'//搜索组件
-
+import NewsList from './components/news/NewsList.vue'//新闻列表组件
+import NewsInfo from './components/news/NewsInfo.vue'//新闻详情组件
 //创建路由对象
 const router = new VueRouter({
     routes:[
@@ -13,7 +14,9 @@ const router = new VueRouter({
         { path: '/home', component: HomeContainer },
         { path: '/member', component: MemberContainer },
         { path: '/shopcar', component: ShopcarContainer },
-        { path: '/search', component: SearchContainer }
+        { path: '/search', component: SearchContainer },
+        { path: '/home/newslist', component: NewsList },
+        { path: '/home/newsinfo/:id', component: NewsInfo }
     ],
     linkActiveClass:'mui-active',//路由选中高亮显示  覆盖router-link默认的选中类 router-link-active
 })

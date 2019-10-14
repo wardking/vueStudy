@@ -10,14 +10,23 @@ import './lib/mui/css/mui.min.css'//导入MUI组件的css
 import './lib/mui/css/icons-extra.css'//导入MUI扩展图标需要的css
 import './lib/mui/fonts/mui-icons-extra.ttf'//导入MUI扩展图标需要的字体文件
 // mint-ui
-import { Header, Swipe, SwipeItem } from 'mint-ui';//按需导入mint-ui
+import { Header, Swipe, SwipeItem, Button} from 'mint-ui';//按需导入mint-ui
  //按需导入的mint-ui组件注册
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
 // vue-resource相关
 import VueResource from 'vue-resource'//导入
 Vue.use(VueResource)//注册
+Vue.http.options.root="http://www.liulongbin.top:3005"//配置全局请求的根路径
+
+// 定义全局的过滤器
+import moment from 'moment'//导入时间插件
+Vue.filter('dataFormat',(dataStr,pattern="YYYY-MM-DD HH:mm:ss")=>{
+    // 安装了一个npm组件 npm i moment -S 用来格式化时间
+    return moment(dataStr).format(pattern);
+})
 let vm = new Vue({//构建vue实例
     el:'#app',
     render:c=>c(app),//将app主组件插入到页面中

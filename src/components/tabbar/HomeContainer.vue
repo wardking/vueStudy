@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播区域 -->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="(item,index) in slideshowList" :key="index">
-                <img :src="item.img" >
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :slideshowList="slideshowList" :isfull="true"></swiper>
         <!-- 9宫格布局 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -14,15 +10,17 @@
 		                    <div class="mui-media-body">新闻资讯</div>
                         </router-link>
                     </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <router-link to="/home/photolist">
 		                   <img src="../../images/icon2.png" alt="图片分享">
 		                    <div class="mui-media-body">图片分享</div>
-                        </a>
+                        </router-link>
                     </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <router-link to="/home/goodslist">
 		                     <img src="../../images/icon3.png" alt="商品购买">
 		                    <div class="mui-media-body">商品购买</div>
-                        </a>
+                        </router-link>
                     </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                     <img src="../../images/icon4.png" alt="留言反馈">
@@ -44,6 +42,7 @@
 </template>
 <script>
 import { Toast } from 'mint-ui'
+import swiper from "../subcomponents/swiper.vue"//导入轮播图组件
 export default {
     data() {
         return {
@@ -64,28 +63,12 @@ export default {
             })
         }
     },
-    
+    components: {
+        swiper
+    }
 }
 </script>
 <style lang="scss" scoped>
-    .mint-swipe{//mint-ui自带的class类
-        height: 10rem;
-        .mint-swipe-item{
-            &:nth-child(1){//scaa语法
-                background-color: red;
-            } 
-            &:nth-child(2){//scaa语法
-                background-color: blue;
-            }  
-            &:nth-child(3){//scaa语法
-                background-color: green;
-            }  
-            img{
-                width: 100%;
-                height: 100%;
-            }   
-        }
-    }
     .mui-grid-view.mui-grid-9{
         background-color: #fff;
         border:none;

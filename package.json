@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --port 5000 --contentBase src --hot"
+    "dev": "webpack-dev-server --open --port 5000 --contentBase src --hot --host 192.168.32.55"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.6.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-component": "^1.1.1",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-upgrade": "^1.0.1",
     "bootstrap": "^3.4.1",
@@ -40,6 +41,7 @@
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-preview": "^1.1.3",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.1.3"
   }

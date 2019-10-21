@@ -2,8 +2,8 @@
     <div class="app-container">
         <!-- 顶部Header区域 -->
         <mt-header fixed title="Vue项目">
-			<p slot="left" @click="getGo()">
-				<mt-button icon="back">back</mt-button>
+			<p slot="left" @click="getGo()" v-show="flag">
+				<mt-button icon="back">返回</mt-button>
 			</p>
 		</mt-header>
         <!-- 路由切换区域 -->
@@ -24,7 +24,7 @@
 			</router-link>
 			<router-link class="mui-tab-item-llb" to="/shopcar">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-					<span class="mui-badge" id="badge">0</span>
+					<span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span>
 				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
@@ -32,8 +32,7 @@
 				<span class="mui-icon mui-icon-search"></span>
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
-		</nav>
-		
+		</nav>		
     </div>
 </template>
 
@@ -41,14 +40,26 @@
 export default {
    data() {
 	   return {
-		   
+		   flag:false,
 	   }
+   },
+   created() {
+	   this.flag = this.$route.path==="/home"?false:true;
    },
    methods: {
 	   getGo(){
 		   this.$router.go(-1)
 	   }
-   }
+   },
+   watch: {
+	   "$route.path":function(newVal){//这里要是用ES6会报错
+		   if(newVal==="/home"){
+			   this.flag=false;
+		   }else{
+			   this.flag=true
+		   }
+	   }
+   },
 }
 </script>
 <style lang="scss" scope>

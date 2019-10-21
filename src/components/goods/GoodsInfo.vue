@@ -98,6 +98,10 @@ export default {
         },
         addToShopCar(){//添加到购物车
             this.ballFlag = !this.ballFlag;
+            //先得到商品的对象  拼接出一个要保存到store中的car数组
+            const goodsinfo={id:this.id,count:this.selectedCount,price:this.goodsinfo.sell_price,selected:true};
+            //调用store中的mutations  将数据添加到store中
+            this.$store.commit('addToCar', goodsinfo)
         },
         beforeEnter(el) {
             el.style.transform = "translate(0, 0)";
